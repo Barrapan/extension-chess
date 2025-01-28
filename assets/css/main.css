@@ -1,0 +1,77 @@
+body {
+  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-weight: bold;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #00ffc8, #feb47b);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .profile {
+    text-align: center;
+    margin-left: 15px;
+    margin-top: 20px;
+  }
+
+  .profile img {
+    width: 77px;
+    height: 77px;
+    object-fit: cover;
+  }
+
+  .profile p {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #000;
+  }
+
+  .elo-info {
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .elo-box {
+    text-align: center;
+    margin: 20px;
+  }
+
+  .elo-box h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .elo-box img {
+    width: 43px;
+    height: 43px;
+    background: #ffa500;
+    border-radius: 4px;
+    display: block;
+    margin: 10px auto;
+  }
+
+  .elo-box span {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000;
+    margin-top: 3px;
+  }
