@@ -3,34 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chess Player Stats</title>
+  <title>Vista Previa del Jugador</title>
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  <h1>Chess Player Stats</h1>
-  <div class="search">
-    <input type="text" id="search" placeholder="Buscar jugador...">
-    <button id="searchBtn">Buscar</button>
-    <div id="errorMessage" style="color: red; display: none; margin-top: 10px;">Jugador no encontrado</div>
-  </div>
-  <div class="options">
-    <label>
-      <input type="checkbox" id="dailyCheckbox" checked> Daily
-    </label>
-    <label>
-      <input type="checkbox" id="bulletCheckbox" checked> Bullet
-    </label>
-    <label>
-      <input type="checkbox" id="blitzCheckbox" checked> Blitz
-    </label>
-    <label>
-      <input type="checkbox" id="rapidCheckbox" checked> Rapid
-    </label>
-    <label>
-      <input type="checkbox" id="puzzlesCheckbox" checked> Puzzles
-    </label>
-  </div>
-  <h3>Vista previa:</h3>
   <div class="container">
     <div class="profile">
       <img id="avatar">
@@ -64,11 +40,6 @@
       </div>
     </div>
   </div>
-  <button class="generate" id="generateBtn">Generar Enlace</button>
-  <div id="urlContainer" style="display: none; margin-top: 20px;">
-    <p>Enlace generado:</p>
-    <a id="generatedUrl" target="_blank"></a>
-  </div>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/preview.js"></script>
 </body>
 </html>
