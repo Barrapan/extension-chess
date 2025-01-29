@@ -4,8 +4,26 @@ function obtenerUsernameDeUrl() {
     return params.get('username');
   }
   
-// Función para cargar los datos del jugador
-async function cargarDatosJugador(username) {
+  // Función para aplicar los colores seleccionados
+  function aplicarColores() {
+    const params = new URLSearchParams(window.location.search);
+    const backgroundColor = `#${params.get('bg')}` || '#ffffff'; // Color de fondo por defecto
+    const textColor = `#${params.get('text')}` || '#000000'; // Color del texto por defecto
+  
+    // Aplicar los colores al contenedor
+    const container = document.querySelector('.container');
+    container.style.backgroundColor = backgroundColor;
+    container.style.color = textColor;
+
+    // Aplicar el color del texto a todos los elementos de texto dentro del contenedor
+    const textElements = container.querySelectorAll('h3, p, span');
+    textElements.forEach(element => {
+        element.style.color = textColor;
+    });
+  }
+  
+  // Función para cargar los datos del jugador
+  async function cargarDatosJugador(username) {
     try {
       // Obtener el perfil del jugador
       const perfilResponse = await fetch(`https://api.chess.com/pub/player/${username}`);
@@ -60,11 +78,14 @@ async function cargarDatosJugador(username) {
     }
   }
   
-  // Cargar los datos del jugador al cargar la página
+
+  
+  // Cargar los datos del jugador al cargar la página, aplicar los colores y redimensionar la ventana
   window.onload = () => {
     const username = obtenerUsernameDeUrl();
     if (username) {
-      cargarDatosJugador(username);
+      aplicarColores(); // Aplicar los colores seleccionados
+      cargarDatosJugador(username); // Cargar los datos del jugador
     } else {
       console.error('No se proporcionó un nombre de usuario en la URL.');
     }

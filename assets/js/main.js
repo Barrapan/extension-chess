@@ -113,7 +113,29 @@ document.getElementById('rapidCheckbox').addEventListener('change', actualizarVi
 document.getElementById('puzzlesCheckbox').addEventListener('change', actualizarVista);
 
 
-// Función para generar la URL
+// Función para actualizar los colores del contenedor de vista previa
+function actualizarColoresPreview() {
+  const backgroundColor = document.getElementById('backgroundColor').value;
+  const textColor = document.getElementById('textColor').value;
+
+  // Obtener el contenedor de vista previa
+  const previewContainer = document.getElementById('previewContainer');
+
+  // Aplicar el color de fondo al contenedor
+  previewContainer.style.backgroundColor = backgroundColor;
+
+  // Aplicar el color del texto a todos los elementos de texto dentro del contenedor
+  const textElements = previewContainer.querySelectorAll('h3, p, span');
+  textElements.forEach(element => {
+    element.style.color = textColor;
+  });
+}
+
+// Escuchar cambios en los selectores de color
+document.getElementById('backgroundColor').addEventListener('input', actualizarColoresPreview);
+document.getElementById('textColor').addEventListener('input', actualizarColoresPreview);
+
+// Función para generar la URL con los colores seleccionados
 function generarEnlace(username) {
   const baseUrl = window.location.href.split('/').slice(0, -1).join('/'); // Obtiene la URL base sin el archivo actual
 
@@ -124,9 +146,13 @@ function generarEnlace(username) {
   const rapidChecked = document.getElementById('rapidCheckbox').checked;
   const puzzlesChecked = document.getElementById('puzzlesCheckbox').checked;
 
-  // Crear el enlace con los parámetros de las casillas seleccionadas
-  const enlace = `${baseUrl}/preview.html?username=${username}&daily=${dailyChecked}&bullet=${bulletChecked}&blitz=${blitzChecked}&rapid=${rapidChecked}&puzzles=${puzzlesChecked}`;
-  
+  // Obtener los colores seleccionados
+  const backgroundColor = document.getElementById('backgroundColor').value.replace('#', '');
+  const textColor = document.getElementById('textColor').value.replace('#', '');
+
+  // Crear el enlace con los parámetros de las casillas seleccionadas y los colores
+  const enlace = `${baseUrl}/preview.html?username=${username}&daily=${dailyChecked}&bullet=${bulletChecked}&blitz=${blitzChecked}&rapid=${rapidChecked}&puzzles=${puzzlesChecked}&bg=${backgroundColor}&text=${textColor}`;
+
   return enlace;
 }
 

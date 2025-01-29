@@ -11,7 +11,6 @@
   <div class="search">
     <input type="text" id="search" placeholder="Buscar jugador...">
     <button id="searchBtn">Buscar</button>
-    <div id="errorMessage" style="color: red; display: none; margin-top: 10px;">Jugador no encontrado</div>
   </div>
   <div class="options">
     <label>
@@ -30,8 +29,17 @@
       <input type="checkbox" id="puzzlesCheckbox" checked> Puzzles
     </label>
   </div>
+
+  <!-- Selector de colores -->
+  <div class="color-picker">
+    <label for="backgroundColor">Color de fondo:</label>
+    <input type="color" id="backgroundColor" value="#ffffff">
+    <label for="textColor">Color del texto:</label>
+    <input type="color" id="textColor" value="#000000">
+  </div>
+
   <h3>Vista previa:</h3>
-  <div class="container">
+  <div class="container" id="previewContainer">
     <div class="profile">
       <img id="avatar">
       <p id="username">Buscando...</p>
@@ -39,7 +47,7 @@
     <div class="elo-info">
       <div class="elo-box" id="dailyBox">
         <h3>Daily</h3>
-        <img src="assets/images/daily.png" alt="Bullet Icon">
+        <img src="assets/images/bullet.png" alt="Bullet Icon">
         <span id="dailyRating">0</span>
       </div>
       <div class="elo-box" id="bulletBox">
@@ -59,7 +67,7 @@
       </div>
       <div class="elo-box" id="puzzlesBox">
         <h3>Puzzles</h3>
-        <img src="assets/images/puzzle.png" alt="Rapid Icon">
+        <img src="assets/images/rapid.png" alt="Rapid Icon">
         <span id="puzzlesRating">0</span>
       </div>
     </div>
