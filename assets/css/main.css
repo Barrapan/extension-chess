@@ -143,3 +143,48 @@ body {
 #generatedUrl:hover {
   text-decoration: underline;
 }
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de rebote */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Aplica fade-in a los contenedores al cargar */
+.container, .elo-box {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Efecto de escala al pasar el cursor */
+.container:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Rebote en imágenes */
+.profile img, .elo-box img {
+  animation: bounce 1s ease-in-out infinite alternate;
+}
+
+/* Efecto de hover en elo-box */
+.elo-box:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
